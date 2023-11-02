@@ -76,6 +76,10 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             self.wfile.write(f'''
+            <noscript>
+                <img src="https://web.metrics.t2v.city/ingress/297254e4-f15f-42a0-b67d-596318de6ede/pixel.gif">
+            </noscript>
+            <script defer src="https://web.metrics.t2v.city/ingress/297254e4-f15f-42a0-b67d-596318de6ede/script.js"></script>
             <pre>{content}</pre>
             '''.encode())
         except FileNotFoundError:
@@ -88,6 +92,10 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/html')
         self.end_headers()
         self.wfile.write(f'''
+        <noscript>
+            <img src="https://web.metrics.t2v.city/ingress/297254e4-f15f-42a0-b67d-596318de6ede/pixel.gif">
+        </noscript>
+        <script defer src="https://web.metrics.t2v.city/ingress/297254e4-f15f-42a0-b67d-596318de6ede/script.js"></script>
         <hr>
         <h1>Editor</h1>
         <form action="/editor?token={sha256(key.encode('utf-8')).hexdigest()}" method="post">
